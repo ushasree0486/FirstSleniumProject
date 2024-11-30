@@ -14,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Properties;
 
 @Getter
@@ -52,8 +54,9 @@ public class BaseSetUp {
     @SneakyThrows
     private static Properties loadObjectRepository() {
         objRepo = new Properties();
-        objRepo.load(new FileInputStream(new File("OR.properties")));
+        objRepo.load(Files.newInputStream(new File("src/test/resources/OR.properties").toPath()));
         return objRepo;
+
     }
 
     public Properties getObjRepo() {

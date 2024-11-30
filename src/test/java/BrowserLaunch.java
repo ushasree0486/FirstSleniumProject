@@ -1,6 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
-import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class BrowserLaunch {
-   private WebDriver driver ;
+   private WebDriver webdriver ;
     @SneakyThrows
     public static void main(String[] args) throws Exception {
         testChromeDriverLaunch();
@@ -32,7 +31,7 @@ public class BrowserLaunch {
         WebDriver driver = new ChromeDriver(options);*/
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
 
         driver.get("https://www.bbc.co.uk");
         if (driver.getTitle().startsWith("BBC")) {
