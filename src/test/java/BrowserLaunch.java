@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebDriver;
@@ -11,20 +12,28 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class BrowserLaunch {
+   private WebDriver driver ;
     @SneakyThrows
     public static void main(String[] args) throws Exception {
-        // testChromeDriverLaunch();
-        testFireFoxDriverLaunch();
+        testChromeDriverLaunch();
+        //testFireFoxDriverLaunch();
     }
 
-    private static void testChromeDriverLaunch() {
-        String driverPath = "D:\\Usha\\drivers\\chromedriver.exe";
+    private static  void testChromeDriverLaunch() {
+        WebDriverManager.chromedriver().setup();
+        //String driverPath = "D:\\Usha\\drivers\\chromedriver.exe";
+        String driverPath="C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+
         System.setProperty("webdriver.chrome.driver", driverPath);
         System.out.println(System.getProperties());
-
-        ChromeOptions options = new ChromeOptions();
+        //WebDriver driver = new ChromeDriver();
+       /* ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);*/
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+        ChromeDriver driver = new ChromeDriver(options);
+
         driver.get("https://www.bbc.co.uk");
         if (driver.getTitle().startsWith("BBC")) {
             System.out.println("chrome launch test case passed");

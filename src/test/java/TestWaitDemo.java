@@ -36,7 +36,7 @@ public class TestWaitDemo {
         webDriver.findElement(By.name("q")).sendKeys("Automation");
         webDriver.findElement(By.name("q")).sendKeys(Keys.RETURN);
         // webDriver.findElement(By.xpath("abc"));
-        WebDriverWait wait = new WebDriverWait(webDriver, 60);
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(60));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[normalize-space()='Automation']")));
         element.click();
     }
@@ -57,7 +57,7 @@ public class TestWaitDemo {
     }
 
     public static WebElement getWebElementWithExplicitWait(WebDriver webDriver, int timeOut, By locator) {
-        WebDriverWait wait = new WebDriverWait(webDriver, timeOut);
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(60));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         /* Wait wait = new WebDriverWait(webDriver, timeOut);
         WebElement element =(WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator));*/

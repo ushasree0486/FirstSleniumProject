@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -73,7 +74,7 @@ public class TestDatePickUp {
 
         webDriver.get("https://www.flydubai.com");
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(webDriver, 10);
+        wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
 
 
         // Click on the departure date field to open the date picker

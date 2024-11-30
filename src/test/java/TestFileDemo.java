@@ -11,6 +11,7 @@ public class TestFileDemo {
         File f=new File("selenium.properties");
         FileInputStream f1=new FileInputStream(f);
         p.load(f1);
-        System.out.println(p.get("chromedriver.path"));
+        //System.out.println(p.get("chromedriver.path"));
+        System.out.println(p.get("firefox.driver.path"));
     }
 }
