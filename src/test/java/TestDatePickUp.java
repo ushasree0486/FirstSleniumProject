@@ -26,7 +26,7 @@ public class TestDatePickUp {
         options.addArguments("--remote-allow-origins=*");
         webDriver = new ChromeDriver(options);
     }
-   /* public void testDate() {
+  /*  public void testDate() {
         String expectedDate = "10-March-2025";
         String dateArray[] = expectedDate.split("-");
         String eMonth = dateArray[1];
@@ -56,8 +56,8 @@ public class TestDatePickUp {
                 break;
             }
         }
-    }*/
-    /*
+    }
+
     public void tearDown() {
         if (webDriver != null) {
             webDriver.quit();

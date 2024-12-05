@@ -75,7 +75,7 @@ public class TestWebElementsDemo {
     }
 
     @Test
-    public void testDropDownJobSeve() {
+    public void testDropDownJobServe() {
         webDriver.get("https://jobserve.com");
         //https://jobserve.com/in/en/Job-Search
         webDriver.findElement(By.id("txtKey")).sendKeys("selenium sponsership");
@@ -128,7 +128,7 @@ public class TestWebElementsDemo {
         Assert.assertTrue(text.contains("jobs for QATest Engineer"+location));
     }
     @Test
-    public void testDropDownRadionOnJobserve2() {
+    public void testDropDownRadioOnJobserve2() {
         webDriver.get("https://jobserve.com");
         String location = webDriver.findElement(By.xpath("//*[@id=\"txtLoc\"]")).getText();
         WebElement distance = webDriver.findElement(By.id("selRad"));

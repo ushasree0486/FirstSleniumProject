@@ -27,8 +27,9 @@ public class TestFramesDemo {
         webDriver.get("https://demoqa.com/frames");
         //System.out.println(webDriver.findElement(By.id("sampleHeading")).getText());
         System.out.println(webDriver.findElements(By.tagName("iframe")).size());
-       // webDriver.switchTo().frame("frame1");
+        //webDriver.switchTo().frame("frame1");
         webDriver.switchTo().frame(3);
+
         String sampleHeading = webDriver.findElement(By.id("sampleHeading")).getText();
         // System.out.println(sampleHeading);
         Assert.assertEquals("This is a sample page", sampleHeading);

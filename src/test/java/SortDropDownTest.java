@@ -47,8 +47,8 @@ public class SortDropDownTest {
         });
         System.out.println("Sorted car list "+toBeSortedCarList);
         System.out.println(toBeSortedCarList.equals(originalcarList));
-        //Assert.assertEquals(toBeSortedCarList,originalcarList);
-        //Assert.assertTrue(toBeSortedCarList.equals(originalcarList));//testcase will be failed because they are not equal
+        Assert.assertEquals(toBeSortedCarList,originalcarList);
+        Assert.assertTrue(toBeSortedCarList.equals(originalcarList));//testcase will be failed because they are not equal
     }
 }
 

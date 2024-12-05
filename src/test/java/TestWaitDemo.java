@@ -40,10 +40,9 @@ public class TestWaitDemo {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[normalize-space()='Automation']")));
         element.click();
     }
-
     @Test
     @SneakyThrows
-    public void testExplicitWaitWithGenericMethod() {
+    public void testExplicitWaitWithGenericMethod1() {
         webDriver.get("https://www.google.com");
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -56,14 +55,60 @@ public class TestWaitDemo {
 
     }
 
-    public static WebElement getWebElementWithExplicitWait(WebDriver webDriver, int timeOut, By locator) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(60));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        /* Wait wait = new WebDriverWait(webDriver, timeOut);
-        WebElement element =(WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator));*/
-        //we need to typecast WebElement
-        return element;
+
+    @Test
+    @SneakyThrows
+    public void testExplicitWaitWithGenericMethod() {
+        // Initialize the WebDriver (example uses ChromeDriver)
+        webDriver = new ChromeDriver();
+        try {
+            webDriver.get("https://www.google.com");
+            webDriver.manage().window().maximize();
+
+            // Implicit wait (optional, generally avoid mixing implicit and explicit waits)
+            webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+            // Interacting with elements
+            webDriver.findElement(By.xpath("//*[@id=\"APjFqb\"]")).click(); // If needed
+            WebElement searchBox = webDriver.findElement(By.name("q"));
+            searchBox.sendKeys("Automation");
+            searchBox.sendKeys(Keys.RETURN);
+
+            // Using the generic method to wait for an element
+            WebElement element = getWebElementWithExplicitWait(webDriver, 60, By.id("abc"));
+            if (element != null) {
+                System.out.println("Element found: " + element.getText());
+            } else {
+                System.out.println("Element not found within the timeout period.");
+            }
+        } finally {
+            // Quit the browser
+            webDriver.quit();
+        }
     }
+
+    /**
+     * Generic method to wait for an element with explicit wait.
+     *
+     * @param driver    The WebDriver instance.
+     * @param timeout   The timeout duration in seconds.
+     * @param locator   The By locator to find the element.
+     * @return The WebElement if found and visible, otherwise null.
+     */
+    public WebElement getWebElementWithExplicitWait(WebDriver driver, int timeout, By locator) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (org.openqa.selenium.TimeoutException e) {
+            System.err.println("Timeout: Element not found - " + locator.toString());
+            return null;
+        }
+    }
+
+
+
+
+
 
     @Test
     @SneakyThrows

@@ -25,8 +25,8 @@ public class DemoBrokenLinksText extends BaseSetUp {
 
     @Test
     public void test() {
-        webdriver.get("https://demoqa.com/broken");
-        // webdriver.get("https://www.bbc.com/broken");
+       // webdriver.get("https://demoqa.com/broken");
+        webdriver.get("https://www.bbc.com/weather");
         //storing the links in a list and traversing through the links
         List<WebElement> links = webdriver.findElements(By.tagName("a"));
         //this line will print the number of links and the count of links

@@ -67,7 +67,15 @@ public class TestXpathAxesLocator {
         //preceding sibling:select all siblings before the current node
         final List<WebElement> precedingSiblings=webDriver.findElements(By.xpath("//a[contains(text(),'Alembic Pharmaceutic')]/ancestor::tr/preceding-sibling::*"));
         System.out.println("preceding siblings are "+ precedingSiblings.size());
-
-
     }
-}
+    @Test
+    public void testFBook() {
+        webDriver.get("https://www.facebook.com");
+        System.out.println("size :" + webDriver.getWindowHandles().size());
+        webDriver.findElement(By.xpath("(//a[contains(@class, '_42ft')])[1]")).click();
+
+        webDriver.findElement(By.xpath("//div[@id=\"reg_form_box\"]/child::div[11]/button"));
+        webDriver.findElement((By.xpath("//input[@type=\"text\"]/ancestor::div/div[5]")));
+    }
+    }
+//div[@id="fullname_field"]/child::div[1]

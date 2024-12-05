@@ -38,6 +38,7 @@ public class JsExecutorTest {
     @SneakyThrows
     public void testFlashUsingJsExecutor() {
         webDriver.get("https://www.orangehrm.com/");
+        webDriver.findElement(By.xpath("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]")).click();
         WebElement element = webDriver.findElement(By.xpath("//input[@id='Form_submitForm_action_request']"));
         JsExecutorUtils.flash(element, webDriver);
         //input[@id='Form_submitForm_action_request']
@@ -52,36 +53,45 @@ public class JsExecutorTest {
     public void testCaptureTitleOfTheImage() {
         webDriver.get("https://www.orangehrm.com/");
         // System.out.println(webDriver.getTitle());
+        webDriver.findElement(By.xpath("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]")).click();
         System.out.println(JsExecutorUtils.getTitle(webDriver));
     }
-@Test
+
+    @Test
     public void testClickElementByJsExecutor() {
         webDriver.get("https://www.orangehrm.com/");
+        webDriver.findElement(By.xpath("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]")).click();
         WebElement el = webDriver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/div[2]/ul/li[2]/a"));
-       // el.click();
+        // el.click();
         //*[@id="header-novbar"]/ul[3]/li[1]/a
-        JavascriptExecutor js=(JavascriptExecutor)webDriver;
-        WebElement el2=webDriver.findElement(By.xpath("//*[@id=\"Form_submitForm_action_request\"]"));
-    //*[@id="header-novbar"]/ul[3]/li[2]/a
-        js.executeScript("arguments[1].click()" ,el,el2);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        WebElement el2 = webDriver.findElement(By.xpath("//*[@id=\"Form_submitForm_action_request\"]"));
+        //*[@id="header-novbar"]/ul[3]/li[2]/a
+        js.executeScript("arguments[1].click()", el, el2);
     }
+
     @Test
-    public void testAlertByJSExecutor(){
+    public void testAlertByJSExecutor() {
         webDriver.get("https://www.orangehrm.com/");
+        webDriver.findElement(By.xpath("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]")).click();
         WebElement el = webDriver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/div[2]/ul/li[2]/a"));
-        JavascriptExecutor js=(JavascriptExecutor)webDriver;
-        js.executeScript("arguments[0].click()" ,el);
-        JsExecutorUtils.generateAlert(webDriver,"You Clicked On Contact Sales");
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("arguments[0].click()", el);
+        JsExecutorUtils.generateAlert(webDriver, "You Clicked On Contact Sales");
     }
+
     @Test
-    public void testScrollTillElementAppears(){
+    public void testScrollTillElementAppears() {
         webDriver.get("https://www.orangehrm.com/");
+        webDriver.findElement(By.xpath("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]")).click();
         WebElement el = webDriver.findElement(By.xpath("/html/body/div/div/div/div/section[3]/div[4]/div/div[1]/div[1]/div/img"));
         JsExecutorUtils.scrollTillElementIsInView(el, webDriver);
     }
+
     @Test
-    public void scrollTillEndOfTheDoccument(){
+    public void scrollTillEndOfTheDoccument() {
         webDriver.get("https://www.orangehrm.com/");
+        webDriver.findElement(By.xpath("//*[@id=\"CybotCookiebotDialogBodyButtonAccept\"]")).click();
         JsExecutorUtils.scrollTillEndOfDocument(webDriver);
     }
 

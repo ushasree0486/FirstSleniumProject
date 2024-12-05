@@ -26,6 +26,7 @@ public class LocatorsTest extends BaseSetUp {
         webDriver.manage().window().maximize();
         WebElement searchElement = webDriver.findElement(By.id("search_query_top"));
         searchElement.sendKeys("T-shirt");
+        searchElement.click();
     }
 
     @Test
@@ -78,10 +79,10 @@ public class LocatorsTest extends BaseSetUp {
         webDriver.get("http://www.facebook.com");
         webDriver.manage().window().maximize();
         // tag and id
-        /*WebElement usernameElement = webDriver.findElement(By.cssSelector("#email"));//tag is optional
+        WebElement usernameElement = webDriver.findElement(By.cssSelector("#email"));//tag is optional
        // WebElement usernameElement = webDriver.findElement(By.cssSelector("input#email"));
         usernameElement.sendKeys("abc@gmail.com");
-   */    //tag and class
+       //tag and class
         /*WebElement usernameElement2 = webDriver.findElement(By.cssSelector(".inputtext"));
        // WebElement usernameElement2 = webDriver.findElement(By.cssSelector("input.inputtext"));
         usernameElement2.sendKeys("abc@gmail.com");
@@ -89,10 +90,10 @@ public class LocatorsTest extends BaseSetUp {
         /*WebElement usernameElement3 = webDriver.findElement(By.cssSelector("input[name=email]"));
         // WebElement usernameElement3 = webDriver.findElement(By.cssSelector("[name=email]"));
         usernameElement3.sendKeys("abc@gmail.com");
-        *///tad class attribute
-        WebElement usernameElement4 = webDriver.findElement(By.cssSelector("input.inputtext[name=email]"));
+        *///tag class attribute
+       /* WebElement usernameElement4 = webDriver.findElement(By.cssSelector("input.inputtext[name=email]"));
         // WebElement usernameElement4 = webDriver.findElement(By.cssSelector(".inputtext[name=email]"));
-        usernameElement4.sendKeys("abc@gmail.com");
+        usernameElement4.sendKeys("abc@gmail.com");*/
     }
     @Test
     public void testByXPath() {
