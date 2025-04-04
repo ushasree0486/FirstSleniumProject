@@ -30,12 +30,12 @@ public class TestMouseEvents {
         Actions actions = new Actions(webDriver);
         // retrive wbelement to perform right click
         WebElement btnElement = webDriver.findElement(By.xpath("/html/body/div/section/div/div/div/p/span"));
-        //right click the button to display context menu&nbsp
+        //rightclick the button to display context menu&nbsp
         actions.contextClick(btnElement).perform();
         System.out.println("Right click context menu displasyed");
         //following code is to select item from context menu which gets open up on right click
         //depending upon your application specific test case
-         //select and click 'copy me' i.e 2nd option in context menu
+            //select and click 'copy me' i.e 2nd option in context menu
         WebElement elementOpen = webDriver.findElement(By.xpath("//span[text()='Copy']"));
         elementOpen.click();
         //accept the alert
@@ -73,7 +73,7 @@ public class TestMouseEvents {
 
         //verify text changed in to drop here box
         String textTo =to.getText();
-        Assert.assertEquals("Dropped!",textTo);
+        Assert.assertEquals("Drop here",textTo);
     }
     @Test
     public void testDragAndDropBy(){

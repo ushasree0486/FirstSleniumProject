@@ -33,7 +33,7 @@ public class TestKeyBoardEvents {
         actions.build().perform();
     }
     @Test
-    public void testKeyEventsForCtrelCCtrlV(){
+    public void testKeyEventsForCtrlCCtrlV(){
         webDriver.get("http://demoqa.com/text-box/");
         //create object of the actions class
         Actions actions = new Actions(webDriver);

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public class TestMaxFrequency {
-    private Properties properties;
+   // private Properties properties;
     @Test
 
     public void testMaxFrequencyAlphabet() {
